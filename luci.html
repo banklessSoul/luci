@@ -1,64 +1,6 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-
-
-<style>
-h2 { 
-  border-bottom: 1px solid #b46727;
-  margin:5px;
-}
-.nav {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index:10;
-  top: 0;
-  left: 0;
-  background-color: rgb(180, 104, 44);
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;   
-}
-
-.nav a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: white;
-  display: block;
-  transition: 0.3s;
-  z-index:10;
-}
-
-.nav a:hover {
-  background-color: #f1f1f1;
-  font-size: 30px;
-  z-index:10;
-  color: grey;
-}
-
-.nav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-  z-index:10;
-  font-weight: bold;
-}
-
-@media screen and (max-height: 450px) {
-  .nav {padding-top: 15px;}
-  .nav a {font-size: 18px;}
-}
-</style>
-
-
-<!-- Load d3.js -->
-<script src="https://d3js.org/d3.v4.js"></script>
-
-<!-- Create a div where the graph will take place -->
-
+<link rel="stylesheet" type="text/css" href="/luci/asset.css">
 <body style="padding:0px;margin:0px">
   <div id="nav" class="nav">
 	  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -71,5 +13,4 @@ h2 {
     &#42; <em></em>This page is a tribute to Sam Spratt's <a href="https://www.niftygateway.com/collections/sam-spratt-the-monument-game">Monument game</a>. All data here is solely based on my observations.
    </footer>
 </body>
-
 <script src="/luci/asset.js" type="text/javascript"></script>
