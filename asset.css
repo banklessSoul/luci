@@ -1,3 +1,10 @@
+body {
+  color: #b46727;
+  text-align: center;
+}
+h1 {
+  font-size: 50px;
+}
 h2 { 
   border-bottom: 1px solid #b46727;
   margin:5px;
