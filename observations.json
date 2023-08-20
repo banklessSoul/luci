@@ -1,0 +1,113 @@
+[{
+            "x": 920,
+            "y": 320,
+            "w": 200,
+            "h": 200,
+            "color": "#CDFAE9",
+            "dimension": "love",
+            "dimensionType": "emotion",
+            "textHeader": "Love",
+			"text": "Back in the beginnings of human lifeform, human emotions have not evolved much. Love is the primary emotion in its purest form." 
+        },
+        {
+            "x": 1350,
+            "y": 380,
+            "w": 500,
+            "h": 330,
+            "color": "#F7F9BA",
+            "dimension": "divine",
+            "dimensionType": "emotion",
+            "textHeader": "Destination",
+			"text": "No monuments are built alone.<br/> Yet not everyone can reach here. It needs sacrifice, belief, timeless thinking, Social cohesion, openness. Come to me."
+        },
+        {
+            "x": 170,
+            "y": 460,
+            "w": 2100,
+            "h": 80,
+            "color": "#CBF7FC",
+            "dimension": "pilgrim",
+            "dimensionType": "journey",
+            "textHeader": "Pilgrimage",
+			"text": "The search of self starts here. Ascend!<br/> The path is not easy. Wipe your memories and learnings coded in your DNA. Get out of the comfort zone. Search for the meaning of emotions across time dimension in its purest form. A self ritual to strip away the superficial things in life and start paying attention"
+        },
+        {
+            "x": 1100,
+            "y": 750,
+            "w": 200,
+            "h": 200,
+            "color": "#C7C8C8",
+            "dimension": "spell",
+            "dimensionType": "emotion",
+            "textHeader": "Spell",
+			"text": "Masked men come from the monument; Preach the motive.<br/> The narratives sown in one's mind. Its hard to introspect each and every memory in this fast world. Take a step back. Pick one virtue which makes you less human. Cleanse your self and restart &#x21bb;"
+        },
+        {
+            "x": 1630,
+            "y": 730,
+            "w": 250,
+            "h": 200,
+            "color": "#C7C8C8",
+            "dimension": "demons",
+            "dimensionType": "emotion",
+            "textHeader": "The fear which lets us not to pay attention, Cloud our thinking, encouraging us to sit in a comfort zone. A circle of fear protecting to reach the bottom of the tree. If you may have the will, you cross this"
+        },
+        {
+            "x": 900,
+            "y": 400,
+            "r": 120,
+			"xOff": 60,
+			"yOff": 60,
+            "color": "#FABECE",
+            "dimension": "ape",
+            "dimensionType": "timeline",
+            "textHeader": "Edenic Era",
+			"text": "Origin. Evolution starts here. Now decend!"
+        },
+		{
+            "x": 750,
+            "y": 900,
+            "r": 520,
+			"xOff": 0,
+			"yOff": -150,
+            "color": "#FABECE",
+            "dimension": "stone",
+            "dimensionType": "timeline",
+            "textHeader": "Stone Age",
+			"text": "The dimension below us. The tree is here to climb. Cross the river, muck, fight the fears, navigate the moulds, climb the tree and go back to the origins, shedding one layer at a time"
+        },
+		{
+            "x": 800,
+            "y": 100,
+            "r": 2800,
+			"xOff": 200,
+			"yOff": 2450,
+            "color": "#FABECE",
+            "dimension": "iron",
+            "dimensionType": "timeline",
+            "textHeader": "Industrial Age",
+			"text": "Walled Gardens. As Sam depicts the present where me `Luci`, is chasing the dreams as I was told growing up. Endless hours tied to screens, slowly forgetting the idealogy of health, social connections, mindfulness. Is this all for just an artificially created gratification and recognition?"
+        },
+		{
+            "x": 920,
+            "y": 620,
+            "w": 150,
+            "h": 120,
+            "color": "#C7C8C8",
+            "dimension": "welcome",
+            "dimensionType": "emotion",
+            "textHeader": "Welcome!",
+			"text": "This is one of my favourite section in the visual work. A group of homo sapiens talking to me from the past. Look there is someone looking at us from the portal` exclaimed the sapien"
+        },
+		{
+            "x": 680,
+            "y": 320,
+            "w": 50,
+            "h": 50,
+            "color": "#C7C8C8",
+            "dimension": "brother",
+            "dimensionType": "shutter",
+            "textHeader": "Kin",
+			"text": "Hi Brother, Good to see you near the apex. On my way. See you at the monument"
+        }
+    ]
