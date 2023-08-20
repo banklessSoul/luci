@@ -3,6 +3,10 @@
 
 
 <style>
+h2 { 
+  border-bottom: 1px solid #b46727;
+  margin:5px;
+}
 .nav {
   height: 100%;
   width: 0;
@@ -13,7 +17,7 @@
   background-color: rgb(180, 104, 44);
   overflow-x: hidden;
   transition: 0.5s;
-  padding-top: 60px;  
+  padding-top: 60px;   
 }
 
 .nav a {
@@ -51,29 +55,39 @@
   position: relative;
   display: inline-block;
   z-index: 2;
+  padding-bottom: -5px !important;
 }
 .coordinate {
   width: 50px;
   height: 50px;   
   z-index: 4;
   cursor: pointer;
+  display: inline-block;
 }
 .coordinate:hover {
   filter: drop-shadow(4px 6px 4px rgb(247 249 175 / 0.7));
-  
+}
+.timeline {
+  width:100px;
+  height:100px;
+}
+.shutter {
+   width:20px;
+   height:20px;
 }
 .observation {
   border-radius: 10px;
   position: absolute;
-  background-color: #b46727;
-  font-size: 25px;
+  background-color: white;
+  font-size: 15px;
   font-weight: bold;
   font-family: "Helvetica Neue",Helvetica,sans-serif;
-  color: white;
-  padding: 3px 10px 3px 10px;
+  color: #b46727;
+  padding: 0px 10px 3px 10px;
   visibility: hidden;
   text-wrap: wrap;  
   max-width: 400px;
+  top: 0px;
 }
 .dimension {
   opacity: .4;
@@ -90,26 +104,101 @@
 
 <!-- Create a div where the graph will take place -->
 
-<body style="margin:0px">
+<body style="padding:0px;margin:0px">
   <div id="nav" class="nav">
 	  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-	  <a href="/index.html">Monument Game</a>
-	  <a href="#">Lore</a>
-	  <a href="#">Luci</a>
+	  <a href="/index.html" style="margin-top:30px;">Monument Game</a>
+	  <a href="/luci.html">Luci</a>
 	</div>
   <img id="mg" src="https://i.seadn.io/gcs/files/c98c2074fa2de4f551ff850d95d92595.jpg?auto=format&dpr=1&w=2000" style="position: absolute; z-index: 1" />  
   <div id="varnish"> </div> 
-  <span style="top:10px;left:10px;position:absolute;font-size:30px;cursor:pointer;z-index:10;color:white" onclick="openNav()">&#9776;</span>  
+  <span style="top:10px;left:10px;position:absolute;font-size:30px;cursor:pointer;z-index:10;color:white;" onclick="openNav()"><img style="width:40px;height:50px;" src="./luci-logo.jpg"/></span>  
+  <footer style="font-size:15px;font-style:italic;background-color:#b46727;top:-5px;position:relativewidth:100%">
+    &#42; <em></em>This page is a tribute to Sam Spratt's <a href="https://www.niftygateway.com/collections/sam-spratt-the-monument-game">Monument game</a>. All data here is solely based on my observations.
+   </footer>
 </body>
 
 
 
 <script>
-  function openNav() {
-    document.getElementById("nav").style.width = "250px";
-  }
 
-  function closeNav() {
-    document.getElementById("nav").style.width = "0";
-  }
+function openNav() {
+  document.getElementById("nav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("nav").style.width = "0";
+}
+
+function addDimension(svg, d) {
+    if (d.dimensionType != "timeline") {
+        svg.append("rect")
+            .attr("id", d.dimension)
+            .attr("class", "dimension")
+            .attr("x", d.x - d.w / 2)
+            .attr("y", d.y - d.h / 2)
+            .attr("width", d.w)
+            .attr("height", d.h)
+            .attr("rx", 10)
+            .style("fill", d.color);
+    } else {
+        addPath(svg, d)
+    }
+}
+
+function addPath(svg, d) {
+    const path = d3.path();
+    path.arc(d.x+d.xOff, d.y-d.yOff, d.r, 0, 2 * Math.PI);
+    svg
+        .append("path")
+		.attr("id", d.dimension)
+        .attr("class", "dimension")
+        .attr("d", path)
+        .attr("stroke", "black")
+        .attr("fill", d.color);
+}
+
+d3.json("observations.json", function(error, data) {
+    data = [];
+    var imgBounds = d3.select('#mg').node().getBoundingClientRect();
+    var varnish = d3.select("#varnish");
+
+    var svg = varnish
+        .append("svg")
+        .attr("width", imgBounds.width)
+        .attr("height", imgBounds.height);
+    data.forEach(function(d) {
+        let pos = `coordinate-${d.x}-${d.y}`;
+        let observationId = `#ob-${pos}`;
+		d.xOff = d.xOff == undefined ? 0: d.xOff;
+		d.yOff = d.yOff == undefined ? 0: d.yOff;
+        varnish.append('div')
+            .attr("id", `ob-${pos}`)
+            .attr('class', 'observation')
+            .attr('left', d.x)
+            .attr('top', d.y)
+            .html(`<h2>${d.textHeader}</h2><p style="font-weight:normal;margin-top:10px">${d.text}</p>`)
+        svg.append("svg:image")
+            .attr("id", pos)
+            .attr("class", `coordinate ${d.dimensionType}`)
+            .attr("x", d.x)
+            .attr("y", d.y)
+            .attr("title", d.text)
+            .attr("xlink:href", `./${d.dimensionType}.svg`)
+            .on("mouseover", function() {
+                d3.select(observationId)
+                    .style("visibility", "visible")
+                    .style("left", `${d3.event.clientX}px`)
+                    .style("top", `${d3.event.clientY}px`)
+                d3.selectAll(`#${d.dimension}`).style("visibility", "visible");
+            })
+            .on("mouseout", function() {
+                d3.select(observationId).style("visibility", "hidden");
+                d3.selectAll(`#${d.dimension}`).style("visibility", "hidden");
+            });
+        addDimension(svg, d);
+    });
+
+});
+
 </script>
