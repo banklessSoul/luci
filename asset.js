@@ -49,9 +49,9 @@ d3.json("observations.json", function(error, data) {
         .attr("height", imgBounds.height);
     data.forEach(function(d) {
         let pos = `coordinate-${d.x}-${d.y}`;
-        let observationId = `#ob-${pos}`;
-		d.xOff = d.xOff == undefined ? 0: d.xOff;
-		d.yOff = d.yOff == undefined ? 0: d.yOff;
+        let observationId = `ob-${pos}`;
+	d.xOff = d.xOff == undefined ? 0: d.xOff;
+	d.yOff = d.yOff == undefined ? 0: d.yOff;
         varnish.append('div')
             .attr("id", observationId)
             .attr('class', 'observation')
