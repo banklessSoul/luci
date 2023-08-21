@@ -6,6 +6,11 @@ function closeNav() {
   document.getElementById("nav").style.width = "0";
 }
 
+function closeObservation(id1, id2) {
+  document.getElementById(id1).style.visibility = "hidden";
+	document.getElementById(id2).style.visibility = "hidden";
+}
+
 function addDimension(svg, d) {
     if (d.dimensionType != "timeline") {
         svg.append("rect")
@@ -48,11 +53,11 @@ d3.json("observations.json", function(error, data) {
 		d.xOff = d.xOff == undefined ? 0: d.xOff;
 		d.yOff = d.yOff == undefined ? 0: d.yOff;
         varnish.append('div')
-            .attr("id", `ob-${pos}`)
+            .attr("id", observationId)
             .attr('class', 'observation')
             .attr('left', d.x)
             .attr('top', d.y)
-            .html(`<h2>${d.textHeader}</h2><p style="font-weight:normal;margin-top:10px">${d.text}</p>`)
+           .html(`<h2>${d.textHeader}<span style="float:right;font-weight:normal;cursor:pointer;" onclick=\"closeObservation('${observationId}', '${d.dimension}')\">x</span></h2><p style="font-weight:normal;margin-top:10px">${d.text}</p>`);
         svg.append("svg:image")
             .attr("id", pos)
             .attr("class", `coordinate ${d.dimensionType}`)
@@ -60,18 +65,13 @@ d3.json("observations.json", function(error, data) {
             .attr("y", d.y)
             .attr("title", d.text)
             .attr("xlink:href", `./${d.dimensionType}.svg`)
-            .on("mouseover", function() {
-                d3.select(observationId)
+            .on("click", function() {
+                d3.select(`#${observationId}`)
                     .style("visibility", "visible")
                     .style("left", `${d3.event.clientX}px`)
                     .style("top", `${d3.event.clientY}px`)
                 d3.selectAll(`#${d.dimension}`).style("visibility", "visible");
-            })
-            .on("mouseout", function() {
-                d3.select(observationId).style("visibility", "hidden");
-                d3.selectAll(`#${d.dimension}`).style("visibility", "hidden");
             });
         addDimension(svg, d);
     });
-
 });
