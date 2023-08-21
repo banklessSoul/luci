@@ -86,6 +86,7 @@ h2 {
   text-wrap: wrap;  
   max-width: 400px;
   top: 0px;
+  z-index: 5;
 }
 .dimension {
   opacity: .4;
