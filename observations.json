@@ -17,7 +17,7 @@
             "color": "#F7F9BA",
             "dimension": "divine",
             "dimensionType": "emotion",
-            "textHeader": "Destination",
+            "textHeader": "Monument",
 			"text": "No monuments are built alone.<br/> Yet not everyone can reach here. It needs sacrifice, belief, timeless thinking, Social cohesion, openness. Come to me."
         },
         {
@@ -39,8 +39,8 @@
             "color": "#C7C8C8",
             "dimension": "spell",
             "dimensionType": "emotion",
-            "textHeader": "Spell",
-			"text": "Masked men come from the monument; Preach the motive.<br/> The narratives sown in one's mind. Its hard to introspect each and every memory in this fast world. Take a step back. Pick one virtue which makes you less human. Cleanse your self and restart &#x21bb;"
+            "textHeader": "Players with Mask",
+			"text": "Masked men come from the monument; Crowd notices them<br/> The narratives sown in one's mind. Its hard to introspect each and every memory in this fast world. Take a step back. Pick one virtue which makes you less human. Cleanse your self and restart &#x21bb;"
         },
         {
             "x": 1630,
@@ -62,7 +62,7 @@
             "color": "#FABECE",
             "dimension": "ape",
             "dimensionType": "timeline",
-            "textHeader": "Edenic Era",
+            "textHeader": "Origin/Destination",
 			"text": "Origin. Evolution starts here. Now decend!"
         },
 		{
@@ -87,7 +87,7 @@
             "dimension": "iron",
             "dimensionType": "timeline",
             "textHeader": "Industrial Age",
-			"text": "Walled Gardens. As Sam depicts the present where me `Luci`, is chasing the dreams as I was told growing up. Endless hours tied to screens, slowly forgetting the idealogy of health, social connections, mindfulness. Is this all for just an artificially created gratification and recognition?"
+			"text": "Walled Garden. As Sam depicts the present where me `Luci`, is chasing the dreams as I was told growing up. Endless hours tied to screens, slowly forgetting the idealogy of health, social connections, mindfulness. Is this all for just an artificially created gratification and recognition?"
         },
 		{
             "x": 920,
@@ -98,7 +98,7 @@
             "dimension": "welcome",
             "dimensionType": "emotion",
             "textHeader": "Welcome!",
-			"text": "This is one of my favourite section in the visual work. A group of homo sapiens talking to me from the past. Look there is someone looking at us from the portal` exclaimed the sapien"
+			"text": "This is one of my favourite section in the visual work. A group of homo sapiens talking to me from the past. `Look there is someone looking at us from the portal` exclaimed the sapien"
         },
 		{
             "x": 680,
@@ -109,6 +109,6 @@
             "dimension": "brother",
             "dimensionType": "shutter",
             "textHeader": "Kin",
-			"text": "Hi Brother, Good to see you near the apex. On my way. See you at the monument"
+			"text": "Hi Brother, Good to see you near the apex. On my way. See you at the altar"
         }
     ]
