@@ -55,8 +55,8 @@ d3.json("observations.json", function(error, data) {
         varnish.append('div')
             .attr("id", observationId)
             .attr('class', 'observation')
-            .attr('left', d.x)
-            .attr('top', d.y)
+            .attr('left', `${d.x}px`)
+            .attr('top', `${d.y}px`)
            .html(`<h2>${d.textHeader}<span style="float:right;font-weight:normal;cursor:pointer;" onclick=\"closeObservation('${observationId}', '${d.dimension}')\">x</span></h2><p style="font-weight:normal;margin-top:10px">${d.text}</p>`);
         svg.append("svg:image")
             .attr("id", pos)
@@ -68,8 +68,8 @@ d3.json("observations.json", function(error, data) {
             .on("click", function() {
                 d3.select(`#${observationId}`)
                     .style("visibility", "visible")
-                    .style("left", `${d3.event.clientX}px`)
-                    .style("top", `${d3.event.clientY}px`)
+                    .style("left", `${window.pageXOffset + d3.event.clientX}px`)
+                    .style("top", `${window.pageYOffset + d3.event.clientY}px`)
                 d3.selectAll(`#${d.dimension}`).style("visibility", "visible");
             });
         addDimension(svg, d);
