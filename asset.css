@@ -49,7 +49,7 @@ h2 {
   .nav {padding-top: 15px;}
   .nav a {font-size: 18px;}
 }
-#varnish {
+#varnish, #lineage {
   position: relative;
   display: inline-block;
   z-index: 2;
@@ -94,4 +94,12 @@ h2 {
   stroke-width: 2px;
   visibility: hidden;
   z-index: 3;
+}
+.lineage {
+	stroke: #7d2227;
+	stroke-width: 20;
+	fill:none;
+	stroke-opacity:.4;
+	filter: drop-shadow(3px 5px 2px #FA5B4E);
+	z-index:5;
 }
