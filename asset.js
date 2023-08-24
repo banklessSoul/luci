@@ -14,7 +14,7 @@ function closeObservation(id1, id2) {
 function addDimension(svg, d) {
     if (d.dimensionType != "timeline") {
         svg.append("rect")
-            .attr("id", d.dimension)
+            .attr("id", `highlight-${d.x}-${d.y}`)
             .attr("class", "dimension")
             .attr("x", d.x - d.w / 2)
             .attr("y", d.y - d.h / 2)
@@ -32,7 +32,7 @@ function addPath(svg, d) {
     path.arc(d.x+d.xOff, d.y-d.yOff, d.r, 0, 2 * Math.PI);
     svg
         .append("path")
-		.attr("id", d.dimension)
+		.attr("id", `highlight-${d.x}-${d.y}`)
         .attr("class", "dimension")
         .attr("d", path)
         .attr("stroke", "black")
@@ -51,6 +51,7 @@ function monumentGame() {
 		data.forEach(function(d) {
 			let pos = `coordinate-${d.x}-${d.y}`;
 			let observationId = `ob-${pos}`;
+			let highlightId = `highlight-${d.x}-${d.y}`;
 		d.xOff = d.xOff == undefined ? 0: d.xOff;
 		d.yOff = d.yOff == undefined ? 0: d.yOff;
 			varnish.append('div')
@@ -58,20 +59,20 @@ function monumentGame() {
 				.attr('class', 'observation')
 				.attr('left', `${d.x}px`)
 				.attr('top', `${d.y}px`)
-			   .html(`<h2>${d.textHeader}<span style="float:right;font-weight:normal;cursor:pointer;" onclick=\"closeObservation('${observationId}', '${d.dimension}')\">x</span></h2><p style="font-weight:normal;margin-top:10px">${d.text}</p>`);
+			   .html(`<h2>${d.textHeader}<span style="float:right;font-weight:normal;cursor:pointer;" onclick=\"closeObservation('${observationId}', '${highlightId}')\">x</span></h2><p style="font-weight:normal;margin-top:10px">${d.text}</p>`);
 			svg.append("svg:image")
 				.attr("id", pos)
 				.attr("class", `coordinate ${d.dimensionType}`)
 				.attr("x", d.x)
 				.attr("y", d.y)
-				.attr("title", d.text)
+				.attr("title", d.textHeader)
 				.attr("xlink:href", `./${d.dimensionType}.svg`)
 				.on("click", function() {
 					d3.select(`#${observationId}`)
 						.style("visibility", "visible")
 						.style("left", `${window.pageXOffset + d3.event.clientX}px`)
 						.style("top", `${window.pageYOffset + d3.event.clientY}px`)
-					d3.selectAll(`#${d.dimension}`).style("visibility", "visible");
+					d3.selectAll(`#${highlightId}`).style("visibility", "visible");
 				});
 			addDimension(svg, d);
 		});
@@ -109,6 +110,8 @@ function lineage() {
 		  .curve(d3.curveCardinal)
 		  .angle(theta)
 		  .radius(radius);
+		  
+		  console.log(spiral)
 
 		var path = svg.append("path")
 		  .datum(points)
