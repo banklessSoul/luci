@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="/luci/asset.css">
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<body style="padding:0px;margin:0px">
+  <div id="nav" class="nav">
+      <a href="/luci/luci.html" style="margin-top:30px;">Lore</a>	  
+	  <a href="/luci/index.html">Monument Game</a>
+	  <a href="/luci/masqurade.html">Masqurade</a>	
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>	  
+  </div>
+  <div id="masq">
+        <img id="masq-img" src="masqurade.jpg">
+        <svg id="overlay" class="masq-network"></svg>
+		<div id="masq-slider">
+            <div id="masq-slider-label"><img src="mask.png" style="width:25px;height:25px;"></img> <span style="top:-10px">&nbsp;#125 network</span></div>
+            <input type="range" id="slider" min="0" max="100" value="0" step="1">
+			<span id="slider-value">0</span>
+        </div>
+    </div>
+  <span style="top:10px;left:10px;position:absolute;font-size:30px;cursor:pointer;z-index:10;color:white;" onclick="openNav()"><img style="width:40px;height:50px;" src="./luci-logo.jpg"/></span>  
+  <footer style="font-size:15px;font-style:italic;background-color:#b46727;color:white;top:-5px;position:relativewidth:100%">
+    &#42; <em></em>This page is a tribute to Sam Spratt's <a href="https://www.niftygateway.com/sam-spratt-masquerade/">Masqurade</a>.
+  </footer>
+</body>
+<script src="/luci/asset.js" type="text/javascript"></script>
+<script>setTimeout(masqurade, 500)</script>
